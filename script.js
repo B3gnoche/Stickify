@@ -38,7 +38,7 @@ const createNoteCards = function () {
                     ${stickyNote.text}
                   </p>
                   <div noteId="${stickyNote.noteId}" class="note__close">
-                    <div class="close-grey">
+                    <div class="close-icon--grey">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width=" 100%"
@@ -58,7 +58,7 @@ const createNoteCards = function () {
                         </g>
                       </svg>
                     </div>
-                    <div class="close-icon">
+                    <div class="close-icon--gradient">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 25 24" fill="none">
                     <path d="M11.793 10.7272L12.5001 11.4343L13.2072 10.7272L19.2173 4.71713L18.5101 4.01003L19.2173 4.71713C19.3735 4.56092 19.6267 4.56092 19.7829 4.71713C19.9391 4.87334 19.9391 5.12661 19.7829 5.28282L13.7729 11.2929L13.0658 12L13.7729 12.7071L19.7829 18.7171C19.9391 18.8733 19.9391 19.1266 19.7829 19.2828L20.49 19.9899L19.7829 19.2828C19.6267 19.439 19.3735 19.439 19.2173 19.2828L13.2072 13.2728L12.5001 12.5657L11.793 13.2728L5.78294 19.2828C5.62673 19.439 5.37347 19.439 5.21726 19.2828C5.06105 19.1266 5.06105 18.8733 5.21725 18.7171L4.51015 18.01L5.21725 18.7171L11.2273 12.7071L11.9344 12L11.2273 11.2929L5.21725 5.28282C5.06105 5.12661 5.06105 4.87334 5.21725 4.71713C5.37346 4.56092 5.62673 4.56092 5.78294 4.71713L11.793 10.7272Z" fill="#171717" stroke="url(#paint0_linear_33_336)" stroke-width="2" stroke-linecap="round"/>
                     <defs>
@@ -147,3 +147,9 @@ noteInput.addEventListener("keydown", function (e) {
     addBtn.click();
   }
 });
+
+const currentYear = () => {
+  const currentYearElement = document.querySelector(".current-year");
+  currentYearElement.innerHTML = new Date().getFullYear().toString();
+};
+currentYear();

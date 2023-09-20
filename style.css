@@ -7,11 +7,14 @@
 :root {
   --neutral-900: #171717;
   --neutral-800: #262626;
+  --neutral-700: #404040;
   --neutral-600: #525252;
   --neutral-400: #a3a3a3;
   --neutral-300: #d4d4d4;
   --neutral-50: #fafafa;
   --gradient-linear-10: linear-gradient(135deg, #4568dc 0%, #b06ab3 100%);
+  --speed: 0.5s;
+  --animation: ease;
 }
 
 body {
@@ -22,12 +25,23 @@ body {
   line-height: 1.5;
   background: var(--neutral-900);
 }
+
+.page-wrap {
+  overflow: clip;
+  min-height: 100vh;
+}
+
 header {
   padding: 3rem 0;
 }
 section {
-  padding: 4rem 0;
+  padding: 3rem 0;
   position: relative;
+}
+footer {
+  padding: 10rem 0rem 3rem 0rem;
+  position: relative;
+  text-align: center;
 }
 
 .modal__wrap {
@@ -49,7 +63,12 @@ section {
   border-radius: 0.6875rem;
   border: 1px solid var(--neutral-600, #525252);
   background: var(--neutral-800, #262626);
+  transition: all var(--speed) var(--animation);
+}
+
+.modal:hover {
   box-shadow: 0px 0px 70px -8px rgba(120, 105, 200, 0.27);
+  transform: scale(1.05);
 }
 
 .input {
@@ -62,6 +81,15 @@ section {
   color: var(--neutral-300);
   border: 1px solid var(--neutral-600, #525252);
   background: var(--neutral-700, #404040);
+  transition: background var(--speed) var(--animation);
+}
+
+.input::placeholder {
+  color: inherit;
+}
+
+.input:focus {
+  background: var(--neutral-600);
 }
 
 .btn,
@@ -86,7 +114,7 @@ section {
 
   /* Put transition on original "state" */
   /* transition: background-color 0.3s; */
-  transition: all 0.3s;
+  transition: all var(--speed) var(--animation);
 }
 
 .note__wrapper {
@@ -101,7 +129,7 @@ section {
   min-height: 17rem;
   position: relative;
   border-radius: 0.6875rem;
-  transition: all 0.5s ease;
+  transition: all var(--speed) ease;
   background: var(--neutral-700, #404040);
 }
 
@@ -112,12 +140,15 @@ section {
   transform: translateY(-10px) scale(1.05);
 }
 
-.note:hover .note__close .close-icon {
-  opacity: 1;
+.note__content {
+  border-radius: inherit;
+  padding: 1.25rem 3rem 1.25rem 1.25rem;
+  background: var(--neutral-800, #262626);
+  transition: background var(--speed) var(--animation);
 }
 
-.note:hover .note__close .close-grey {
-  opacity: 0;
+.note:hover .note__content {
+  background: var(--neutral-700, #262626);
 }
 
 .note__close {
@@ -129,26 +160,63 @@ section {
   height: 1.5rem;
 }
 
-.close-icon {
+.note__close:hover .close-icon--gradient {
+  opacity: 1;
+}
+.close-icon--gradient {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: all var(--speed) var(--animation);
 }
-
-.close-grey {
-  transition: all 0.5s ease;
+.close-icon--grey {
+  transition: all var(--speed) var(--animation);
+}
+.note__close:hover .close-icon--grey {
+  opacity: 0;
 }
 
 .note__text {
   width: 100%;
+  height: 100%;
 }
 
-.note__content {
-  border-radius: 0.6875rem;
-  padding: 1.25rem 3rem 1.25rem 1.25rem;
-  background: var(--neutral-800, #262626);
+.note__text:focus-visible {
+  outline: 0;
+}
+
+.footer__gradient {
+  position: absolute;
+  left: 50%;
+  top: 6.87rem;
+  width: 126.8125rem;
+  height: 90.125rem;
+  border-radius: 100%;
+  transform: translateX(-50%);
+  border: 1px solid var(--neutral-700, #404040);
+  background: var(--neutral-900, #171717);
+  box-shadow: 0px -20px 128px -8px rgba(120, 105, 200, 0.32);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.gap-1-5 {
+  gap: 1.5rem;
+}
+
+.flex.justify-content-center {
+  justify-content: center;
+}
+
+.mt-1-5 {
+  margin-top: 1.5em;
+}
+
+.mt-2-5 {
+  margin-top: 2.5em;
 }
