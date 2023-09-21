@@ -1,5 +1,4 @@
 "use strict";
-// Colors
 
 // Main Elements
 const noteInput = document.querySelector(".input");

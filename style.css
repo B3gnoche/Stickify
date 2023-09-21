@@ -16,6 +16,7 @@
   --gradient-linear-10: linear-gradient(135deg, #4568dc 0%, #b06ab3 100%);
   --speed: 0.5s;
   --animation: ease;
+  --border-size: 1px;
 }
 
 body {
@@ -69,7 +70,7 @@ footer {
 }
 
 .modal__wrap {
-  width: 42rem;
+  max-width: 42rem;
   margin: 0 auto;
 }
 
@@ -98,12 +99,12 @@ footer {
 .input {
   all: unset;
   box-sizing: border-box;
-  width: 34.375rem;
+  flex-grow: 2;
   display: block;
   padding: 0.75rem;
   border-radius: 0.3125rem;
   color: var(--neutral-300);
-  border: 1px solid var(--neutral-600, #525252);
+  border: solid var(--border-size) var(--neutral-800);
   background: var(--neutral-700, #404040);
   transition: background var(--speed) var(--animation);
 }
@@ -128,7 +129,7 @@ footer {
   font-weight: 600;
   padding: 0.75rem 1.25rem;
   border-radius: 0.3125rem;
-  border: 1px solid var(--gradient-linear-10, #4568dc);
+  border: var(--border-size) solid var(--gradient-linear-10, #4568dc);
   background: var(--gradient-linear-10, (135deg, #4568dc 0%, #b06ab3 100%));
 
   /* Only necessary for .btn */
@@ -147,49 +148,6 @@ footer {
   gap: 2rem;
 }
 
-@media screen and (max-width: 1150px) {
-  .note__list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (max-width: 760px) {
-  .note__list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .modal__wrap {
-    width: 100%;
-  }
-
-  .input {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 512px) {
-  .note__list {
-    grid-template-columns: 1fr;
-  }
-  .container {
-    width: 85%;
-  }
-
-  .modal {
-    flex-direction: column;
-  }
-
-  .btn,
-  .btn:link,
-  .btn:visited {
-    text-align: center;
-  }
-
-  .section,
-  header {
-    padding: 2rem 0;
-  }
-}
-
 .note {
   padding: 1px;
   display: flex;
@@ -206,19 +164,6 @@ footer {
   padding: 1.25rem 3rem 1.25rem 1.25rem;
   background: var(--neutral-800, #262626);
   transition: background var(--speed) var(--animation);
-}
-/* Above tablet */
-@media screen and (min-width: 991px) {
-  .note:hover {
-    background: var(--gradient-linear-10, (135deg, #4568dc 0%, #b06ab3 100%));
-    color: var(--neutral-300, #d4d4d4);
-    box-shadow: 0px 0px 40px -8px rgba(120, 105, 200, 0.25);
-    transform: scale(1.05);
-  }
-
-  .note:hover .note__content {
-    background: var(--neutral-700, #262626);
-  }
 }
 
 .note.active {
@@ -304,4 +249,61 @@ footer {
 
 .social-link {
   position: relative;
+}
+
+@media screen and (max-width: 1150px) {
+  .note__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .note__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal__wrap {
+    width: 100%;
+  }
+
+  .input {
+    width: 100%;
+  }
+}
+
+/* Above tablet */
+@media screen and (min-width: 991px) {
+  .note:hover {
+    background: var(--gradient-linear-10, (135deg, #4568dc 0%, #b06ab3 100%));
+    color: var(--neutral-300, #d4d4d4);
+    box-shadow: 0px 0px 40px -8px rgba(120, 105, 200, 0.25);
+    transform: scale(1.05);
+  }
+
+  .note:hover .note__content {
+    background: var(--neutral-700, #262626);
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .note__list {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    width: 85%;
+  }
+
+  .modal {
+    flex-direction: column;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    text-align: center;
+  }
+
+  .section,
+  header {
+    padding: 2rem 0;
+  }
 }
