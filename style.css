@@ -5,6 +5,7 @@
 }
 
 :root {
+  --purple: rgba(120, 105, 200, 0.32);
   --neutral-900: #171717;
   --neutral-800: #262626;
   --neutral-700: #404040;
@@ -24,6 +25,29 @@ body {
   color: var(--neutral-400);
   line-height: 1.5;
   background: var(--neutral-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--purple);
+  color: #fff;
+}
+::-moz-selection {
+  background: var(--purple);
+  color: #fff;
+}
+
+/*Reset apple form styles*/
+input,
+textarea,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  background-image: none;
 }
 
 .page-wrap {
@@ -133,25 +157,38 @@ footer {
   background: var(--neutral-700, #404040);
 }
 
-.note:hover {
-  background: var(--gradient-linear-10, (135deg, #4568dc 0%, #b06ab3 100%));
-  color: var(--neutral-300, #d4d4d4);
-  box-shadow: 0px 0px 40px -8px rgba(120, 105, 200, 0.25);
-  transform: translateY(-10px) scale(1.05);
-}
-
 .note__content {
   border-radius: inherit;
   padding: 1.25rem 3rem 1.25rem 1.25rem;
   background: var(--neutral-800, #262626);
   transition: background var(--speed) var(--animation);
 }
+/* Above tablet */
+@media screen and (min-width: 991px) {
+  .note:hover {
+    background: var(--gradient-linear-10, (135deg, #4568dc 0%, #b06ab3 100%));
+    color: var(--neutral-300, #d4d4d4);
+    box-shadow: 0px 0px 40px -8px rgba(120, 105, 200, 0.25);
+    transform: scale(1.05);
+  }
 
-.note:hover .note__content {
+  .note:hover .note__content {
+    background: var(--neutral-700, #262626);
+  }
+}
+
+.note.active {
+  background: var(--gradient-linear-10, (135deg, #4568dc 0%, #b06ab3 100%));
+  color: var(--neutral-300, #d4d4d4);
+  box-shadow: 0px 0px 40px -8px rgba(120, 105, 200, 0.25);
+  transform: scale(1.05);
+}
+
+.note.active .note__content {
   background: var(--neutral-700, #262626);
 }
 
-.note__close {
+.icon__wrap {
   position: absolute;
   top: 0.75em;
   right: 0.75em;
@@ -160,10 +197,10 @@ footer {
   height: 1.5rem;
 }
 
-.note__close:hover .close-icon--gradient {
+.icon__animation:hover .icon__gradient {
   opacity: 1;
 }
-.close-icon--gradient {
+.icon__gradient {
   position: absolute;
   top: 0;
   left: 0;
@@ -172,10 +209,10 @@ footer {
   opacity: 0;
   transition: all var(--speed) var(--animation);
 }
-.close-icon--grey {
+.icon__grey {
   transition: all var(--speed) var(--animation);
 }
-.note__close:hover .close-icon--grey {
+.icon__animation:hover .icon__grey {
   opacity: 0;
 }
 
@@ -198,7 +235,7 @@ footer {
   transform: translateX(-50%);
   border: 1px solid var(--neutral-700, #404040);
   background: var(--neutral-900, #171717);
-  box-shadow: 0px -20px 128px -8px rgba(120, 105, 200, 0.32);
+  box-shadow: 0px -20px 128px -8px var(--purple);
 }
 
 .flex {
@@ -219,4 +256,8 @@ footer {
 
 .mt-2-5 {
   margin-top: 2.5em;
+}
+
+.social-link {
+  position: relative;
 }
