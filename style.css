@@ -141,10 +141,48 @@ footer {
   transition: all var(--speed) var(--animation);
 }
 
-.note__wrapper {
+.note__list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+}
+
+@media screen and (max-width: 1150px) {
+  .note__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .note__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal__wrap {
+    width: 100%;
+  }
+
+  .input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .note__list {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    width: 85%;
+  }
+
+  .modal {
+    flex-direction: column;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    text-align: center;
+  }
 }
 
 .note {
@@ -158,6 +196,7 @@ footer {
 }
 
 .note__content {
+  width: 100%;
   border-radius: inherit;
   padding: 1.25rem 3rem 1.25rem 1.25rem;
   background: var(--neutral-800, #262626);

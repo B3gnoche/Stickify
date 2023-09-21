@@ -4,7 +4,7 @@
 // Main Elements
 const noteInput = document.querySelector(".input");
 const addBtn = document.querySelector(".btn");
-const stickyNoteList = document.querySelector(".note__wrapper");
+const stickyNoteList = document.querySelector(".note__list");
 let stickyNotes = [];
 
 // Check to see if there is anything in local storage
