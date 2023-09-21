@@ -183,6 +183,11 @@ footer {
   .btn:visited {
     text-align: center;
   }
+
+  .section,
+  header {
+    padding: 2rem 0;
+  }
 }
 
 .note {
