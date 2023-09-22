@@ -182,11 +182,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-// Function to reload the page
-function reloadPage() {
-  location.reload();
-}
-
-// Attach the reloadPage function to the window's resize event
-window.onresize = reloadPage;
